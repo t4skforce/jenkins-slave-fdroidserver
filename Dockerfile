@@ -6,6 +6,7 @@ RUN apt-get update -qqy \
   && apt-get -qqy install fdroidserver sshfs expect \
   && rm -rf /var/lib/apt/lists/* \
   && rm -rf /tmp/* \
+  && echo 'allow_other' >> /etc/fuse.conf \
   && chown -R jenkins:jenkins /home/jenkins
 WORKDIR /home/jenkins
 USER jenkins
